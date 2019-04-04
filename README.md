@@ -30,8 +30,10 @@ Please import functions.sql into your postgresql environment.
 # Functions
 |  name |  description  |
 | ---- | ---- |
-|  [f_bytea_to_bit](#f_bytea_to_bit)  |  convert bit varying to bytea |
-|  [f_bit_to_bytea](#f_bit_to_bytea)  |  convert bytea to bit varying |
+|  [f_bytea_to_bit](#f_bytea_to_bit)  | convert bit varying to bytea |
+|  [f_bit_to_bytea](#f_bit_to_bytea)  | convert bytea to bit varying |
+|  [f_bytea_and](#f_bytea_and) | bitwise AND |
+|  [f_bytea_or](#f_bytea_or) | biwise OR |
 
 # Example
 ## f_bytea_to_bit
@@ -52,4 +54,22 @@ Please import functions.sql into your postgresql environment.
  \x0fae
 (1 row)
 
+```
+## f_bytea_and
+```
+# select f_bytea_and(E'\\x0f',E'\\x1d');
+
+ f_bytea_and
+-------------
+ \x0d
+(1 row)
+```
+## f_bytea_or
+```
+# select f_bytea_or(E'\\x0f',E'\\x80');
+
+ f_bytea_or
+------------
+ \x8f
+(1 row)
 ```
