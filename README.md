@@ -31,14 +31,25 @@ Please import functions.sql into your postgresql environment.
 |  name |  description  |
 | ---- | ---- |
 |  [f_bytea_to_bit](#f_bytea_to_bit)  |  convert bit varying to bytea |
-|  f_bit_to_bytea  |  convert bytea to bit varying |
+|  [f_bit_to_bytea](#f_bit_to_bytea)  |  convert bytea to bit varying |
 
 # Example
 ## f_bytea_to_bit
 ```
 # select f_bytea_to_bit(E'\\xff10');
+
   f_bytea_to_bit
 ------------------
  1111111100010000
 (1 row)
+```
+## f_bit_to_bytea
+```
+# select f_bit_to_bytea(b'0000111110101110');
+
+ f_bit_to_bytea
+----------------
+ \x0fae
+(1 row)
+
 ```
