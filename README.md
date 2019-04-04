@@ -34,6 +34,8 @@ Please import functions.sql into your postgresql environment.
 |  [f_bit_to_bytea](#f_bit_to_bytea)  | convert bytea to bit varying |
 |  [f_bytea_and](#f_bytea_and) | bitwise AND |
 |  [f_bytea_or](#f_bytea_or) | biwise OR |
+|  [f_bytea_xor](#f_bytea_xor) | biwise XOR |
+|  [f_bytea_not](#f_bytea_not) | biwise NOT |
 
 # Example
 ## f_bytea_to_bit
@@ -71,5 +73,23 @@ Please import functions.sql into your postgresql environment.
  f_bytea_or
 ------------
  \x8f
+(1 row)
+```
+## f_bytea_xor
+```
+# select f_bytea_xor(E'\\x0f',E'\\xfa');
+
+ f_bytea_xor
+-------------
+ \xf5
+(1 row)
+```
+## f_bytea_not
+```
+# select f_bytea_not(E'\\xaa');
+
+ f_bytea_not
+-------------
+ \x55
 (1 row)
 ```
