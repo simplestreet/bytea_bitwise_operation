@@ -30,12 +30,14 @@ Please import functions.sql into your postgresql environment.
 # Functions
 |  name |  description  |
 | ---- | ---- |
-|  [f_bytea_to_bit](#f_bytea_to_bit)  | convert bit varying to bytea |
-|  [f_bit_to_bytea](#f_bit_to_bytea)  | convert bytea to bit varying |
-|  [f_bytea_and](#f_bytea_and) | bitwise AND |
-|  [f_bytea_or](#f_bytea_or) | biwise OR |
-|  [f_bytea_xor](#f_bytea_xor) | biwise XOR |
-|  [f_bytea_not](#f_bytea_not) | biwise NOT |
+|  [f_bytea_to_bit(bytea)](#f_bytea_to_bit)  | convert bit varying to bytea |
+|  [f_bit_to_bytea(bit varying)](#f_bit_to_bytea)  | convert bytea to bit varying |
+|  [f_bytea_and(bytea, bytea)](#f_bytea_and) | bitwise AND |
+|  [f_bytea_or(bytea, bytea)](#f_bytea_or) | biwise OR |
+|  [f_bytea_xor(bytea, bytea)](#f_bytea_xor) | biwise XOR |
+|  [f_bytea_not(bytea)](#f_bytea_not) | biwise NOT |
+|  [f_bytea_lshift(bytea, integer)](#f_bytea_lshift) | bitwise shift left |
+|  [f_bytea_rshift(bytea, integer)](#f_bytea_rshift) | bitwise shift right |
 
 # Example
 ## f_bytea_to_bit
@@ -91,5 +93,23 @@ Please import functions.sql into your postgresql environment.
  f_bytea_not
 -------------
  \x55
+(1 row)
+```
+## f_bytea_lshift
+```
+# select f_bytea_lshift(E'\\x0f',1);
+
+ f_bytea_lshift
+----------------
+ \x1e
+(1 row)
+```
+## f_bytea_rshift
+```
+# select f_bytea_rshift(E'\\xf0',1);
+
+ f_bytea_rshift
+----------------
+ \x78
 (1 row)
 ```
