@@ -14,9 +14,6 @@ e.g.)
 # select E'\\x0f'::bytea | E'\\xf0'::bytea;
 
 ERROR:  operator does not exist: bytea | bytea
-LINE 1: select E'\\x0f'::bytea | E'\\xf0'::bytea;
-                               ^
-HINT:  No operator matches the given name and argument type(s). You might need to add explicit type casts.
 
 ```
   
@@ -31,3 +28,17 @@ PostgreSQL 9.5.14 (on Ubuntu 16.04)
 Please import functions.sql into your postgresql environment.  
   
 # Functions
+|  name |  description  |
+| ---- | ---- |
+|  [f_bytea_to_bit](#f_bytea_to_bit)  |  convert bit varying to bytea |
+|  f_bit_to_bytea  |  convert bytea to bit varying |
+
+# Example
+## f_bytea_to_bit
+```
+# select f_bytea_to_bit(E'\\xff10');
+  f_bytea_to_bit
+------------------
+ 1111111100010000
+(1 row)
+```
