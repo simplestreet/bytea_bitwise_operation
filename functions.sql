@@ -25,7 +25,7 @@ DECLARE
     w_str_bit TEXT := '';
     w_bytea BYTEA := NULL::BYTEA;
 BEGIN
-    /* バイト数の取得 */
+    /* Get number of bytes */
     w_panel_data_len := octet_length(i_bit);
 
     IF length(i_bit) % 8 != 0 THEN
